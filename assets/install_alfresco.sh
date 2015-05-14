@@ -6,8 +6,20 @@ export JAVA_HOME=/usr/java/latest
 ALF_HOME=/alfresco
 ALF_BIN=alfresco-community-5.0.b-installer-linux-x64.bin
 
+# Add latest epel-release rpm
+cat <<EOM >/etc/yum.repos.d/epel-bootstrap.repo
+[epel]
+name=Bootstrap EPEL
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-\$releasever&arch=\$basearch
+failovermethod=priority
+enabled=0
+gpgcheck=0
+EOM
+
+yum --enablerepo=epel -y install epel-release
+rm -f /etc/yum.repos.d/epel-bootstrap.repo
+
 # satisfy dependencies
-yum install -y http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
 yum install -y fontconfig libSM libICE libXrender libXext hostname libXinerama cups-libs dbus-glib
 yum install -y supervisor
 

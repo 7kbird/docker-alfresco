@@ -11,6 +11,9 @@ yum install -y http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-releas
 yum install -y fontconfig libSM libICE libXrender libXext hostname libXinerama cups-libs dbus-glib
 yum install -y supervisor
 
+# install fonts for openoffic renders
+yum groupinstall -y "Fonts"
+
 # get alfresco installer
 mkdir -p $ALF_HOME
 cd /tmp

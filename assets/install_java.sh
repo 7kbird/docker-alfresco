@@ -14,3 +14,6 @@ update-alternatives --install /usr/bin/java java /usr/java/latest/bin/java 1065
 update-alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 1065
 update-alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 1065
 update-alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 1065
+
+# remove package to make image smaller
+rm $JAVA_RPM

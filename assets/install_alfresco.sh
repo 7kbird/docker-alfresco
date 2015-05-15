@@ -24,9 +24,7 @@ rm -f /etc/yum.repos.d/epel-bootstrap.repo
 # satisfy dependencies
 yum install -y fontconfig libSM libICE libXrender libXext hostname libXinerama cups-libs dbus-glib
 yum install -y supervisor
-
-# install fonts for openoffic renders
-yum groupinstall -y "Fonts"
+yum clean all
 
 # get alfresco installer
 mkdir -p $ALF_HOME
@@ -39,6 +37,9 @@ chmod +x $ALF_BIN
 
 # get rid of installer - makes image smaller
 rm $ALF_BIN
+
+# install fonts for openoffic renders
+yum groupinstall -y "Fonts"
 
 # setup supervisor configs
 cat > /etc/supervisord.d/alfresco.ini <<EOF

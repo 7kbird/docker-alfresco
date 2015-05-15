@@ -4,7 +4,7 @@ set -e
 JAVA_RPM=jdk-8u25-linux-x64.rpm
 
 # get java
-wget --progress=dot --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u25-b17/$JAVA_RPM
+wget -nv --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u25-b17/$JAVA_RPM
 
 # install java
 yum localinstall -y ./$JAVA_RPM

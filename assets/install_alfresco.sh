@@ -4,7 +4,9 @@ set -e
 # vars
 export JAVA_HOME=/usr/java/latest
 ALF_HOME=/alfresco
-ALF_BIN=alfresco-community-5.0.b-installer-linux-x64.bin
+ALF_VERSION=5.0.d
+ALF_BUILD=00002
+ALF_BIN=alfresco-community-$ALF_VERSION-installer-linux-x64.bin
 
 # Add latest epel-release rpm
 cat <<EOM >/etc/yum.repos.d/epel-bootstrap.repo
@@ -29,7 +31,7 @@ yum groupinstall -y "Fonts"
 # get alfresco installer
 mkdir -p $ALF_HOME
 cd /tmp
-wget --progress=dot http://dl.alfresco.com/release/community/5.0.b-build-00092/$ALF_BIN
+wget -nv http://dl.alfresco.com/release/community/$ALF_VERSION-build-$ALF_BUILD/$ALF_BIN
 chmod +x $ALF_BIN
 
 # install alfresco

@@ -29,7 +29,7 @@ yum groupinstall -y "Fonts"
 # get alfresco installer
 mkdir -p $ALF_HOME
 cd /tmp
-wget http://dl.alfresco.com/release/community/5.0.b-build-00092/$ALF_BIN
+wget --progress=dot http://dl.alfresco.com/release/community/5.0.b-build-00092/$ALF_BIN
 chmod +x $ALF_BIN
 
 # install alfresco
